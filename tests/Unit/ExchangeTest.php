@@ -49,4 +49,8 @@ class ExchangeTest extends TestCase
         $exchange = new Exchange(new CryptoCom());
         $this->assertSame(3100, $exchange->last('eth/usdt'));
     }
+
+    public function () {
+        $user->notify(new PairPriceAlert($pair, $price));
+    }
 }
