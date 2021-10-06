@@ -13,11 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
+
+    $user = Auth::user();
+
+    $invoice = App\Models\Invoice::find(1);
+
+    $user->notify(new App\Notifications\InvoicePaid($invoice));
+
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
