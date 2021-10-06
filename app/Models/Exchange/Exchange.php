@@ -21,4 +21,9 @@ class Exchange extends Model
     {
         return $this->exchangeInterface->name();
     }
+
+    public function last()
+    {
+        return $this->exchangeInterface->last();
+    }
 }

@@ -8,4 +8,9 @@ class CryptoCom implements ExchangeInterface
     {
         return 'crypto.com';
     }
+
+    public function last()
+    {
+        return 3100;
+    }
 }

@@ -8,4 +8,9 @@ class Binance implements ExchangeInterface
     {
         return 'binance';
     }
+
+    public function last()
+    {
+        return 3000;
+    }
 }

@@ -37,4 +37,16 @@ class ExchangeTest extends TestCase
         $exchange = new Exchange(new CryptoCom());
         $this->assertSame('crypto.com', $exchange->name());
     }
+
+    /**
+     * ./vendor/bin/sail test --filter=test_returns_last
+     */
+    public function test_returns_last()
+    {
+        $exchange = new Exchange(new Binance());
+        $this->assertSame(3000, $exchange->last('eth/usdt'));
+
+        $exchange = new Exchange(new CryptoCom());
+        $this->assertSame(3100, $exchange->last('eth/usdt'));
+    }
 }
