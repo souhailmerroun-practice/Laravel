@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,12 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+
+    $response = Http::get('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT');
+
+    dd($response->json());
+
+    //
 
     $user = Auth::user();
 
