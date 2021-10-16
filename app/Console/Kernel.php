@@ -4,9 +4,6 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Models\User;
-use App\Models\Invoice;
-use App\Notifications\InvoicePaid;
 
 class Kernel extends ConsoleKernel
 {
@@ -27,15 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
-                    
-            $user = User::find(1);
-
-            $invoice = Invoice::find(1);
-
-            $user->notify(new InvoicePaid($invoice));
-
-        })->everyMinute();
+        // $schedule->command('inspire')->hourly();
     }
 
     /**
