@@ -16,6 +16,8 @@ use Inertia\Inertia;
 |
 */
 
+Route::view('/welcome', 'welcome');
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -31,6 +33,6 @@ Route::get('/dashboard', function () {
 
 Route::resource('tasks', TaskController::class)->only([
     'index', 'show'
-]);
+])->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
